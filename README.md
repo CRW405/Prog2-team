@@ -1,5 +1,5 @@
 # Prog2-team
-## Green Team: Caleb Wiyninger, Jay Johnson, and Tatu Parales
+## Green Team: Caleb Wiyninger, Jay Johnson, and Cris Parales
 
 # Project 1:
 
