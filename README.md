@@ -2,6 +2,9 @@
 ## Green Team: Caleb Wiyninger, Jay Johnson, and Cris Parales
 
 # Project 1:
+Caleb: Project Lead, Structuring
+Cris: FXML, Layout
+Jay: Logic, Filters
 
 # Project 2:
 
