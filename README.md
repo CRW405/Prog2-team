@@ -22,5 +22,5 @@ Caleb Wiyninger:
 Jay Johnson:
 817-692-0228
 
-Chris Parales:
+Cris Parales:
 361-728-6048
