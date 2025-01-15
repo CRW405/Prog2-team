@@ -1,2 +1,15 @@
 # Prog2-team
-Caleb Wiyninger, Jay Johnson, Tatu Parales
+## Green Team: Caleb Wiyninger, Jay Johnson, and Tatu Parales
+
+# Project 1:
+
+# Project 2:
+
+# Project 3:
+
+# Communitcations:
+Discord invite:
+https://discord.gg/xuwnPwaPAM
+
+Caleb Wiyninger:
+405-403-7933
