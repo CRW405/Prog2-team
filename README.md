@@ -18,3 +18,6 @@ https://discord.gg/xuwnPwaPAM
 
 Caleb Wiyninger:
 405-403-7933
+
+Jay Johnson:
+817-692-0228
