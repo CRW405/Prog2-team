@@ -19,4 +19,14 @@
     Sliders for filter parameters, e.g. brightness, contrast, etc. 
      -->
 
+    <!-- Placeholder -->
+    <Button text="Load Image" onAction="#loadImage"/>
+
+    <ImageView fx:id="inputImageView" fitWidth="400" fitHeight="400"/>
+
+    <Button text="Apply Filter" onAction="#applyFilter"/>
+
+    <ImageView fx:id="outputImageView" fitWidth="400" fitHeight="400"/>
+    <!-- Placeholder -->
+
 </VBox>
