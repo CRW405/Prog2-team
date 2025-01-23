@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.teamproject1.HelloController">
+
+    <!-- TO DO
+    Image Picker
+    Filter Selection
+    Output Image
+
+    IDEAS
+    Dropdown menu for filter selection
+    Image Saver
+    Sliders for filter parameters, e.g. brightness, contrast, etc. 
+     -->
+
+</VBox>
