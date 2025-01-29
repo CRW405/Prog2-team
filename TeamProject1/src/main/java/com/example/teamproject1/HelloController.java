@@ -9,15 +9,18 @@ import javafx.scene.image.ImageView;
 public class HelloController {
     /*
      * TODO
-     * Filter folders for filter classes
-     * Abstract class for filter so that filters are consistent
+     * Filter folders for filter classes - done
+     * Abstract class for filter so that filters are consistent - done
      * Control Logic for buttons, etc
      * 
      * IDEAS:
-     * Greyscale
+     * Greyscale - in proress
      * Blue shift, red shift, etc
      * Sepia
-     * Mirror 
+     * Mirror
+     * Overlay (add another image on top of the current image)
+     * Sort pixels
+     * Data mosh like effect
      */
 
     @FXML
