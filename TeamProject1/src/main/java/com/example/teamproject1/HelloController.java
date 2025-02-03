@@ -14,7 +14,7 @@ public class HelloController {
      * Control Logic for buttons, etc
      * 
      * IDEAS:
-     * Greyscale - in proress
+     * Greyscale - in progress
      * Blue shift, red shift, etc
      * Sepia
      * Mirror
