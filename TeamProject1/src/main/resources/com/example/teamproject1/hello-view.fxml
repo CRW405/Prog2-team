@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.teamproject1.HelloController">
-
-    <!-- TO DO
-    Image Picker
-    Filter Selection
-    Output Image
-
-    IDEAS
-    Dropdown menu for filter selection
-    Image Saver
-    Sliders for filter parameters, e.g. brightness, contrast, etc. 
-     -->
-
-    <!-- Placeholder -->
-    <Button text="Load Image" onAction="#loadImage"/>
-
-    <ImageView fx:id="inputImageView" fitWidth="400" fitHeight="400"/>
-
-    <Button text="Apply Filter" onAction="#applyFilter"/>
-
-    <ImageView fx:id="outputImageView" fitWidth="400" fitHeight="400"/>
-    <!-- Placeholder -->
-
-</VBox>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamproject1.HelloController">
+    <center>
+        <HBox spacing="20" alignment="CENTER">
+            <ImageView fx:id="inputImageView" fitWidth="300" fitHeight="300" />
+            <ImageView fx:id="outputImageView" fitWidth="300" fitHeight="300" />
+        </HBox>
+    </center>
+    <bottom>
+        <VBox spacing="10" alignment="CENTER" padding="10">
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Load Image" fx:id="loadImageButton" onAction="#loadimage" />
+                <Button text="Gray Scale" fx:id="grayScaleButton" onAction="#applyGrayScale" />
+                <Button text="Sepia Tone" fx:id="sepiaToneButton" onAction="#applySepia" />
+                <Button text="Custom 1" fx:id="customFilter1Button" onAction="#applyCustomFilter1" />
+                <Button text="Custom 2" fx:id="customFilter2Button" onAction="#applyCustomFilter2" />
+                <Button text="Custom 3" fx:id="customFilter3Button" onAction="#applyCustomFilter3" />
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
