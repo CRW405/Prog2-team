@@ -1,6 +1,5 @@
 package com.example.teamproject1.filters;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -8,10 +7,11 @@ import javax.imageio.ImageIO;
 import java.awt.Color;
 
 public class BlueShift extends Filter{
+    
+    @Override
+    public BufferedImage applyFilter(File inputFile) throws IOException {
 
-    public Image applyBlueFilter(File inputFile) throws IOException {
-
-        // this is a variable for 
+        // this is a variable for the new buffered image
         BufferedImage loadedImage = ImageIO.read(inputFile);
 
         // so we estentially have to loop through the x and y values so it can count every inch of the picture
@@ -22,29 +22,18 @@ public class BlueShift extends Filter{
                 
                 // we get color values :) 
                 int alpha = color.getAlpha();
-                int red = color.getRed();
-                int green = color.getGreen();
-                int blue = color.getBlue();
+                int red = 51; // red value 
+                int green = 181; // green value
+                int blue = 255; // blue value
 
-                red = 51; // red value
-                green = 181; // green value
-                blue = 255; // blue value
-
-                int newPixel = (alpha<<24) | (red<<16) | (green<<8) | blue;
-                loadedImage.setRGB(x, y, newPixel);
+                int newColor = (alpha<<24) | (red<<16) | (green<<8) | blue;
+                loadedImage.setRGB(x, y, newColor);
             }
         }
-
-        Image outputImage = loadedImage; // rename image to outputImage and return
-        return outputImage;
+        return loadedImage;
     }
+} 
 
-    @Override
-    public Image applyFilter(File inputFile) throws IOException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'applyFilter'");
-    } 
-}
 
 /*
  * sooooooo how do colors work???

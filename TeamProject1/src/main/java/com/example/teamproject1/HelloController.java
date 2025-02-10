@@ -1,8 +1,10 @@
 package com.example.teamproject1;
 
+import java.awt.Desktop.Action;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import com.example.teamproject1.filters.BlueShift;
 import com.example.teamproject1.filters.GrayScale;
 
 import javafx.event.ActionEvent;
@@ -86,5 +88,17 @@ public class HelloController {
         // Apply filter to image
 
         // get selected filter and input image then apply filter
+    }
+
+    @FXML 
+    private void applyBlueShift(ActionEvent event) {
+        BlueShift blueshift = new BlueShift();
+
+        try{
+            outputImage = blueshift.applyFilter(inputImageFile);
+            outputImageView.setImage(BlueShift.convertBufferedToFx(outputImage));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
