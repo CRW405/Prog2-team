@@ -4,11 +4,13 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.Buffer;
+
 import javax.imageio.ImageIO;
 import java.awt.Color;
 
-public class GreyScale extends Filter {
-    public Image applyFilter(File inputFile) throws IOException {
+public class GrayScale extends Filter {
+    public BufferedImage applyFilter(File inputFile) throws IOException {
         BufferedImage inputImage = ImageIO.read(inputFile);
 
         // loop through y values
@@ -33,8 +35,7 @@ public class GreyScale extends Filter {
                 inputImage.setRGB(x, y, newColor); // set new pixel value
             }
         }
-        Image outputImage = inputImage; // rename image to outputImage and return
-        return outputImage;
+        return inputImage;
     }
 
 }
