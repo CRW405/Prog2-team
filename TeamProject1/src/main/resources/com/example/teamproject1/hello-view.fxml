@@ -6,6 +6,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+
+    <!-- TO DO
+    Image Picker
+    Filter Selection
+    Output Image
+    
+    IDEAS
+    Dropdown menu for filter selection
+    Image Saver
+    Sliders for filter parameters, e.g. brightness, contrast, etc. 
+     -->
+
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamproject1.HelloController">
     <center>
         <HBox spacing="20" alignment="CENTER">
@@ -14,15 +26,10 @@
         </HBox>
     </center>
     <bottom>
-        <VBox spacing="10" alignment="CENTER" padding="10">
             <HBox spacing="10" alignment="CENTER">
                 <Button text="Load Image" fx:id="loadImageButton" onAction="#loadimage" />
-                <Button text="Gray Scale" fx:id="grayScaleButton" onAction="#applyGrayScale" />
-                <Button text="Sepia Tone" fx:id="sepiaToneButton" onAction="#applySepia" />
-                <Button text="Custom 1" fx:id="customFilter1Button" onAction="#applyCustomFilter1" />
-                <Button text="Custom 2" fx:id="customFilter2Button" onAction="#applyCustomFilter2" />
-                <Button text="Custom 3" fx:id="customFilter3Button" onAction="#applyCustomFilter3" />
+                <Button text="Gray Scale" fx:id="applyGrayScaleButton" onAction="#applyGrayScale" />
+                <Button text="Sepia Tone" fx:id="applySepiaButton" onAction="#applySepia" />
             </HBox>
-        </VBox>
     </bottom>
 </BorderPane>

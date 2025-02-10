@@ -1,5 +1,6 @@
 package com.example.teamproject1;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,15 +30,33 @@ public class HelloController {
     @FXML
     private ImageView outputImageView;
 
+    @FXML
+    private Button loadImageButton;
+
+    @FXML
+    private Button applyGrayScaleButton;
+
+    @FXML
+    private Button applySepiaButton;
+
     private Image inputImage;
 
     private Image outputImage;
 
-    private void loadimage() {
+    @FXML
+    private void loadimage(ActionEvent  event) {
         // Load image from file
     }
 
-    private void applyFilter() {
+    @FXML
+    private void applyGrayScale(ActionEvent event) {
+        // Apply filter to image
+
+        // get selected filter and input image then apply filter
+    }
+
+    @FXML
+    private void applySepia(ActionEvent event) {
         // Apply filter to image
 
         // get selected filter and input image then apply filter
