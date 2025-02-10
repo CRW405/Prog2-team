@@ -14,9 +14,12 @@ public class HelloController {
      * Abstract class for filter so that filters are consistent - done
      * Control Logic for buttons, etc
      * 
+     * Normalize blueshift logic with greyscale logic, eg: use same pixel system that greyscale uses
+     * 
      * IDEAS:
-     * Greyscale - in progress
-     * Blue shift, red shift, etc
+     * Greyscale - done
+     * Blue shift, - in ptogress
+     * red shift, etc
      * Sepia
      * Mirror
      * Overlay (add another image on top of the current image)
