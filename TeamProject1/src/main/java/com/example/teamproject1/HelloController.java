@@ -6,6 +6,7 @@ import java.io.File;
 
 import com.example.teamproject1.filters.BlueShift;
 import com.example.teamproject1.filters.GrayScale;
+import com.example.teamproject1.filters.Sepia;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -86,7 +87,14 @@ public class HelloController {
     @FXML
     private void applySepia(ActionEvent event) {
         // Apply filter to image
+            Sepia sepia = new Sepia();
 
+            try {
+                outputImage = sepia.applyFilter(inputImageFile);
+                outputImageView.setImage(sepia.convertBufferedToFx(outputImage));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         // get selected filter and input image then apply filter
     }
 
