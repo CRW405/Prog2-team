@@ -19,9 +19,8 @@ public abstract class Filter {
 
     public static javafx.scene.image.Image convertBufferedToFx(BufferedImage bufferedImage) { // convert buffered image
                                                                                               // to fx image
-        WritableImage fxImage = new WritableImage(bufferedImage.getWidth(), bufferedImage.getHeight()); // create new
-                                                                                                        // writable
-                                                                                                        // image object
+        WritableImage fxImage = new WritableImage(bufferedImage.getWidth(), bufferedImage.getHeight());
+        // create new writable image object
 
         PixelWriter writer = fxImage.getPixelWriter(); // get pixel writer object for new image
 
