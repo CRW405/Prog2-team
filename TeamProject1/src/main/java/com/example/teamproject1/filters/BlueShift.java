@@ -22,9 +22,15 @@ public class BlueShift extends Filter{
                 
                 // we get color values :) 
                 int alpha = color.getAlpha();
-                int red = 51; // red value 
-                int green = 181; // green value
-                int blue = 255; // blue value
+                int red = color.getRed();
+                int green = color.getGreen();
+                int blue = color.getBlue();
+                
+
+                // we are enhancing the blue components but i made sure to keep red and green close to 0
+                red = (int) (red * 0.4); 
+                green = (int) (green * 0.8); 
+                blue = Math.min((int) (blue * 1.4), 250); //blue no go higher than 255
 
                 int newColor = (alpha<<24) | (red<<16) | (green<<8) | blue;
                 inputImage.setRGB(x, y, newColor);

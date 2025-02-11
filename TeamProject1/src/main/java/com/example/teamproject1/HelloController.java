@@ -99,6 +99,6 @@ public class HelloController {
             outputImageView.setImage(BlueShift.convertBufferedToFx(outputImage));
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        } 
     }
 }
