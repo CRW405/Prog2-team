@@ -11,7 +11,7 @@ import javafx.scene.image.PixelWriter;
 /* TODO:
  * 
  * IDEAS:
- * overload applyFilter to take in parameters
+ * overload applyFilter() to take in parameters
  */
 
 public abstract class Filter {
@@ -32,7 +32,7 @@ public abstract class Filter {
             }
         }
 
-        return new ImageView(fxImage).getImage(); // covert image view to javafx image
+        return new ImageView(fxImage).getImage(); // convert image view to javafx image
     }
 
 }
