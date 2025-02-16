@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
-    <!-- TO DO 
+<!-- TO DO 
     Image Picker - done
     Filter Selection 
     Output Image - done
@@ -18,7 +18,8 @@
     Sliders for filter parameters, e.g. brightness, contrast, etc. 
      -->
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teamproject1.HelloController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.example.teamproject1.HelloController">
     <center>
         <HBox spacing="20" alignment="CENTER">
             <ImageView fx:id="inputImageView" fitWidth="300" fitHeight="300" />
@@ -26,13 +27,20 @@
         </HBox>
     </center>
     <bottom>
-            <HBox spacing="10" alignment="CENTER">
-                <Button text="Load Image" fx:id="loadImageButton" onAction="#loadimage" />
+        <HBox spacing="10" alignment="CENTER">
+            <VBox spacing="10" alignment="CENTER">
+
+                <Button text="Load Image" fx:id="loadImageButton" onAction="#loadImage" />
+            </VBox>
+            <VBox spacing="10" alignment="CENTER">
                 <Button text="Gray Scale" fx:id="applyGrayScaleButton" onAction="#applyGrayScale" />
                 <Button text="Sepia Tone" fx:id="applySepiaButton" onAction="#applySepia" />
+            </VBox>
+            <VBox spacing="10" alignment="CENTER">
                 <Button text="Red Shift" fx:id="applyRedShiftButton" onAction="#applyRedShift" />
                 <Button text="Green Shift" fx:id="applyGreenShiftButton" onAction="#applyGreenShift" />
-                <Button text="Blue Shift" fx:id="applyBlueShiftButton" onAction="#applyBlueShift" /> 
-            </HBox>
+                <Button text="Blue Shift" fx:id="applyBlueShiftButton" onAction="#applyBlueShift" />
+            </VBox>
+        </HBox>
     </bottom>
 </BorderPane>

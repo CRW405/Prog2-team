@@ -54,7 +54,7 @@ public class HelloController {
     private BufferedImage outputImage;
 
     @FXML
-    private void loadimage(ActionEvent event) {
+    private void loadImage(ActionEvent event) {
         // Load image from file
         FileChooser fileChooser = new FileChooser(); // create file chooser object
         fileChooser.setTitle("Open Image File"); // set title of file chooser
