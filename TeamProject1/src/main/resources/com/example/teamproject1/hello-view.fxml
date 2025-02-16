@@ -30,6 +30,8 @@
                 <Button text="Load Image" fx:id="loadImageButton" onAction="#loadimage" />
                 <Button text="Gray Scale" fx:id="applyGrayScaleButton" onAction="#applyGrayScale" />
                 <Button text="Sepia Tone" fx:id="applySepiaButton" onAction="#applySepia" />
+                <Button text="Red Shift" fx:id="applyRedShiftButton" onAction="#applyRedShift" />
+                <Button text="Green Shift" fx:id="applyGreenShiftButton" onAction="#applyGreenShift" />
                 <Button text="Blue Shift" fx:id="applyBlueShiftButton" onAction="#applyBlueShift" /> 
             </HBox>
     </bottom>

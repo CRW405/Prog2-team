@@ -6,7 +6,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Color;
 
-public class BlueShift extends Filter{
+public class RedShift extends Filter{
     
     @Override
     public BufferedImage applyFilter(File inputFile) throws IOException {
@@ -28,9 +28,9 @@ public class BlueShift extends Filter{
                 
 
                 // we are enhancing the blue components but i made sure to keep red and green close to 0
-                red = (int) (red * 0.4); 
+                blue = (int) (blue * 0.4); 
                 green = (int) (green * 0.8); 
-                blue = Math.min((int) (blue * 1.4), 250); //blue no go higher than 255
+                red = Math.min((int) (red * 1.4), 250); //blue no go higher than 255
 
                 int newColor = new Color(red, green, blue, alpha).getRGB();
                 inputImage.setRGB(x, y, newColor);

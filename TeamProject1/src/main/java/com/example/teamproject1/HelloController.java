@@ -6,6 +6,8 @@ import java.io.File;
 
 import com.example.teamproject1.filters.BlueShift;
 import com.example.teamproject1.filters.GrayScale;
+import com.example.teamproject1.filters.GreenShift;
+import com.example.teamproject1.filters.RedShift;
 import com.example.teamproject1.filters.Sepia;
 
 import javafx.event.ActionEvent;
@@ -27,13 +29,14 @@ public class HelloController {
      * 
      * IDEAS:
      * Greyscale - done
-     * Blue shift, - in ptogress
-     * red shift, etc
+     * Blue shift, - done
+     * red shift, etc - in progress
      * Sepia - done
      * Mirror
      * Overlay (add another image on top of the current image)
      * Sort pixels
      * Data mosh like effect
+     * inverse color
      * 
      * make error popup function
      */
@@ -107,5 +110,29 @@ public class HelloController {
         } catch (Exception e) {
             e.printStackTrace();
         } 
+    }
+
+    @FXML
+    private void applyRedShift(ActionEvent event) {
+        RedShift redshift = new RedShift();
+
+        try{
+            outputImage = redshift.applyFilter(inputImageFile);
+            outputImageView.setImage(RedShift.convertBufferedToFx(outputImage));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void applyGreenShift(ActionEvent event) {
+        GreenShift greenshift = new GreenShift();   
+
+        try{
+            outputImage = greenshift.applyFilter(inputImageFile);
+            outputImageView.setImage(GreenShift.convertBufferedToFx(outputImage));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
