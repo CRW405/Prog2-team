@@ -32,7 +32,7 @@ public class BlueShift extends Filter{
                 green = (int) (green * 0.8); 
                 blue = Math.min((int) (blue * 1.4), 250); //blue no go higher than 255
 
-                int newColor = (alpha<<24) | (red<<16) | (green<<8) | blue;
+                int newColor = new Color(blue, green, red, alpha).getRGB();
                 inputImage.setRGB(x, y, newColor);
             }
         }

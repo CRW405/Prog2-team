@@ -25,11 +25,13 @@ public class Sepia extends Filter{
                 int green = color.getGreen();
                 int blue = color.getBlue();
 
-                var newColor = (int)(red + blue  + green ) /8;
+                int filteredRed = (int) Math.min((red * 0.393) + (int) (green * 0.769) + (int) (blue * 0.189), 255);
+                int filteredGreen = (int) Math.min((red * 0.349) + (int) (green * 0.686) + (int) (blue * 0.168), 255);
+                int filteredBlue = (int) Math.min((red * 0.272) + (int) (green * 0.534) + (int) (blue * 0.131), 255);
 
                 // Create an Integer for the new values
-                int newPixel = (alpha<<24) | (newColor<<16) | (newColor<<8) | newColor;
-                inputImage.setRGB(x, y, newPixel);
+                int newColor = new Color(filteredRed, filteredGreen, filteredBlue, alpha).getRGB();
+                inputImage.setRGB(x, y, newColor); // set new pixel value
             }
         }
         return inputImage;

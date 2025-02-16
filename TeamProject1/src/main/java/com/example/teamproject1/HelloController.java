@@ -29,7 +29,7 @@ public class HelloController {
      * Greyscale - done
      * Blue shift, - in ptogress
      * red shift, etc
-     * Sepia
+     * Sepia - done
      * Mirror
      * Overlay (add another image on top of the current image)
      * Sort pixels
