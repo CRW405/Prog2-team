@@ -30,7 +30,7 @@ public class HelloController {
      * IDEAS:
      * Greyscale - done
      * Blue shift, - done
-     * red shift, etc - in progress
+     * red shift, etc - done
      * Sepia - done
      * Mirror
      * Overlay (add another image on top of the current image)
