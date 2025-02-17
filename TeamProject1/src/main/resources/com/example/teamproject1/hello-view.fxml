@@ -9,13 +9,14 @@
 
 <!-- TO DO 
     Image Picker - done
-    Filter Selection 
+    Filter Selection - in progress
     Output Image - done
+    borders and legends
 
     IDEAS
-    Dropdown menu for filter selection
-    Image Saver
-    Sliders for filter parameters, e.g. brightness, contrast, etc. 
+    Dropdown menu for filter selection - scrapped
+    Image Saver - done
+    Sliders for filter parameters, e.g. brightness, contrast, etc.
      -->
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1"
@@ -27,10 +28,12 @@
         </HBox>
     </center>
     <bottom>
+    <VBox spacing="10" alignment="CENTER">
         <HBox spacing="10" alignment="CENTER">
             <VBox spacing="10" alignment="CENTER">
-
                 <Button text="Load Image" fx:id="loadImageButton" onAction="#loadImage" />
+                <Button text="Save Image" fx:id="saveImageButton" onAction="#saveImage" />
+                <Button text="Use Current Output Image" fx:id="LoadOutputButton" onAction="#loadOutput" />
             </VBox>
             <VBox spacing="10" alignment="CENTER">
                 <Button text="Gray Scale" fx:id="applyGrayScaleButton" onAction="#applyGrayScale" />
@@ -46,5 +49,7 @@
                 <Button text="Sort Pixels" fx:id="applySortButton" onAction="#applySort" />
             </VBox>
         </HBox>
+                <Button text="ResetFilter" fx:id="resetButton" onAction="#reset" />
+    </VBox>
     </bottom>
 </BorderPane>
