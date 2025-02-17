@@ -4,11 +4,7 @@ import java.awt.Desktop.Action;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import com.example.teamproject1.filters.BlueShift;
-import com.example.teamproject1.filters.GrayScale;
-import com.example.teamproject1.filters.GreenShift;
-import com.example.teamproject1.filters.RedShift;
-import com.example.teamproject1.filters.Sepia;
+import com.example.teamproject1.filters.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,9 +30,9 @@ public class HelloController {
      * Sepia - done
      * Mirror
      * Overlay (add another image on top of the current image)
-     * Sort pixels
+     * Sort pixels - done
      * Data mosh like effect
-     * inverse color
+     * inverse color - done
      * 
      * make error popup function
      */
@@ -131,6 +127,30 @@ public class HelloController {
         try{
             outputImage = greenshift.applyFilter(inputImageFile);
             outputImageView.setImage(GreenShift.convertBufferedToFx(outputImage));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void applyInverse(ActionEvent event) {
+        Inverse inverse = new Inverse();
+
+        try{
+            outputImage = inverse.applyFilter(inputImageFile);
+            outputImageView.setImage(Inverse.convertBufferedToFx(outputImage));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void applySort(ActionEvent event) {
+        Sort sort = new Sort();
+
+        try{
+            outputImage = sort.applyFilter(inputImageFile);
+            outputImageView.setImage(Sort.convertBufferedToFx(outputImage));
         } catch (Exception e) {
             e.printStackTrace();
         }

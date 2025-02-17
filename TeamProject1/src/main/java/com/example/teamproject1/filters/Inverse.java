@@ -6,7 +6,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Color;
 
-public class GreenShift extends Filter {
+public class Inverse extends Filter {
 
     @Override
     public BufferedImage applyFilter(File inputFile) throws IOException {
@@ -23,13 +23,9 @@ public class GreenShift extends Filter {
 
                 // we get color values :)
                 int alpha = color.getAlpha();
-                int red = color.getRed();
-                int green = color.getGreen();
-                int blue = color.getBlue();
-                
-                red = (int) (red * 0.4);
-                blue = (int) (blue * 0.8);
-                green = Math.min((int) (green * 1.4), 250);
+                int red = 255 - color.getRed();
+                int green = 255 - color.getGreen();
+                int blue = 255 - color.getBlue();
 
                 int newColor = new Color(red, green, blue, alpha).getRGB();
                 inputImage.setRGB(x, y, newColor);

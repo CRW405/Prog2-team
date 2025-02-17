@@ -41,6 +41,10 @@
                 <Button text="Green Shift" fx:id="applyGreenShiftButton" onAction="#applyGreenShift" />
                 <Button text="Blue Shift" fx:id="applyBlueShiftButton" onAction="#applyBlueShift" />
             </VBox>
+            <VBox spacing="10" alignment="CENTER">
+                <Button text="Inverse" fx:id="applyInverseButton" onAction="#applyInverse" />
+                <Button text="Sort Pixels" fx:id="applySortButton" onAction="#applySort" />
+            </VBox>
         </HBox>
     </bottom>
 </BorderPane>
