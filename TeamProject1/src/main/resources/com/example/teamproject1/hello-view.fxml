@@ -22,8 +22,8 @@
     fx:controller="com.example.teamproject1.HelloController">
     <center>
         <HBox spacing="20" alignment="CENTER">
-            <ImageView fx:id="inputImageView" fitWidth="300" fitHeight="300" />
-            <ImageView fx:id="outputImageView" fitWidth="300" fitHeight="300" />
+            <ImageView fx:id="inputImageView" fitWidth="500" HBox.hgrow="ALWAYS" preserveRatio="true"/>
+            <ImageView fx:id="outputImageView" fitWidth="500" HBox.hgrow="ALWAYS" preserveRatio="true"/>
         </HBox>
     </center>
     <bottom>

@@ -19,21 +19,22 @@ public class HelloController {
      * TODO
      * Filter folders for filter classes - done
      * Abstract class for filter so that filters are consistent - done
+     * Normalize blueshift logic with greyscale logic, eg: use same pixel system that greyscale uses- done
+     * 
      * Control Logic for buttons, etc
      * 
-     * Normalize blueshift logic with greyscale logic, eg: use same pixel system that greyscale uses- done
      * 
      * IDEAS:
      * Greyscale - done
      * Blue shift, - done
      * red shift, etc - done
      * Sepia - done
-     * Mirror
-     * Overlay (add another image on top of the current image)
      * Sort pixels - done
-     * Data mosh like effect
      * inverse color - done
      * 
+     * Overlay (add another image on top of the current image)
+     * Data mosh like effect
+     * Mirror
      * make error popup function
      */
     @FXML

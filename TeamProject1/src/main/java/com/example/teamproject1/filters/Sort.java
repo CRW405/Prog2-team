@@ -20,7 +20,7 @@ public class Sort extends Filter {
 
         inputImage.getRGB(0, 0, width, height, pixels, 0, width); // get all pixels from image
 
-        Arrays.sort(pixels);
+        Arrays.sort(pixels); // sort pixels
 
         inputImage.setRGB(0, 0, width, height, pixels, 0, width); // set all pixels to sorted pixels
         return inputImage;
