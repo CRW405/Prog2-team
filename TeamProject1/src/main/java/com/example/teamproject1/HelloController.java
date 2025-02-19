@@ -83,6 +83,9 @@ public class HelloController {
             if (file != null) {
                 try {
                     String fileName = file.getName();
+                    if (!fileName.contains(".")) {
+                        file = new File(file.getAbsolutePath() + ".png");
+                    }
                     switch (fileName.substring(fileName.lastIndexOf(".") + 1)) {
                         case "jpg":
                             javax.imageio.ImageIO.write(outputImage, "jpg", file);
