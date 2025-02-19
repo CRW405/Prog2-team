@@ -86,17 +86,7 @@ public class HelloController {
                     if (!fileName.contains(".")) {
                         file = new File(file.getAbsolutePath() + ".png");
                     }
-                    switch (fileName.substring(fileName.lastIndexOf(".") + 1)) {
-                        case "jpg":
-                            javax.imageio.ImageIO.write(outputImage, "jpg", file);
-                            break;
-                        case "jpeg":
-                            javax.imageio.ImageIO.write(outputImage, "jpeg", file);
-                            break;
-                        default:
-                            javax.imageio.ImageIO.write(outputImage, "png", file);
-                            break;
-                    }
+                    javax.imageio.ImageIO.write(outputImage, "png", file);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
