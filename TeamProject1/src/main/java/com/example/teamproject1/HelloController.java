@@ -21,7 +21,7 @@ public class HelloController {
      * TODO
      * Filter folders for filter classes - done
      * Abstract class for filter so that filters are consistent - done
-     * Normalize blueshift logic with greyscale logic, eg: use same pixel system
+     * Normalize blueshift logic with greyscale logic, eg: use same pixel system - done
      * that greyscale uses- done
      * 
      * Control Logic for buttons, etc
