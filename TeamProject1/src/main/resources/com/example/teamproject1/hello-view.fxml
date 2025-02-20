@@ -19,6 +19,16 @@
     Sliders for filter parameters, e.g. brightness, contrast, etc.
      -->
 
+<!-- 
+     Do not delete the todo list, just add " - done" to entry when completed
+     be careful not to change fx:id and onAction names and try to keep the naming conventions consistent
+     
+     PRIORITY:
+     borders around the filter sections
+     legends/labels for each section
+     In general, just make our ui look better
+     -->
+
 <BorderPane xmlns:fx="http://javafx.com/fxml/1"
     fx:controller="com.example.teamproject1.HelloController">
     <center>
@@ -33,17 +43,20 @@
         <VBox spacing="10" alignment="CENTER">
             <HBox spacing="10" alignment="CENTER">
                 <VBox spacing="10" alignment="CENTER">
+                    <!-- File Operations-->
                     <Button text="Load Image" fx:id="loadImageButton" onAction="#loadImage" />
                     <Button text="Save Image" fx:id="saveImageButton" onAction="#saveImage" />
                     <Button text="Use Current Output Image" fx:id="LoadOutputButton"
                         onAction="#loadOutput" />
                 </VBox>
                 <VBox spacing="10" alignment="CENTER">
+                    <!-- 'Old' Filters -->
                     <Button text="Gray Scale" fx:id="applyGrayScaleButton"
                         onAction="#applyGrayScale" />
                     <Button text="Sepia Tone" fx:id="applySepiaButton" onAction="#applySepia" />
                 </VBox>
                 <VBox spacing="10" alignment="CENTER">
+                    <!-- Color Shift Filters-->
                     <Button text="Red Shift" fx:id="applyRedShiftButton" onAction="#applyRedShift" />
                     <Button text="Green Shift" fx:id="applyGreenShiftButton"
                         onAction="#applyGreenShift" />
@@ -51,12 +64,15 @@
                         onAction="#applyBlueShift" />
                 </VBox>
                 <VBox spacing="10" alignment="CENTER">
+                    <!-- 'Glitch/Corruption' Filters-->
                     <Button text="Inverse" fx:id="applyInverseButton" onAction="#applyInverse" />
                     <Button text="Sort Pixels" fx:id="applySortButton" onAction="#applySort" />
-                    <Button text="Tile Shuffle" fx:id="applyShuffleTileButton" onAction="#applyShuffleTile" />
+                    <Button text="Tile Shuffle" fx:id="applyShuffleTileButton"
+                        onAction="#applyShuffleTile" />
                     <Button text="Data Mosh" fx:id="applyDataMoshButton" onAction="#applyDataMosh" />
                 </VBox>
             </HBox>
+            <!-- Reset output image to input image-->
             <Button text="ResetFilter" fx:id="resetButton" onAction="#reset" />
         </VBox>
     </bottom>

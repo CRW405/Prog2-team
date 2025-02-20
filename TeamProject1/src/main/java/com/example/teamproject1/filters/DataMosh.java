@@ -7,7 +7,9 @@ import javax.imageio.ImageIO;
 import java.awt.Color;
 import java.util.Random;
 
-//http://datamoshing.com/type/image/
+
+// Logic sourced from http://datamoshing.com/type/image/
+// great resource for info on how to create image filters
 
 public class DataMosh extends Filter {
 
@@ -34,17 +36,18 @@ public class DataMosh extends Filter {
             int horizontalShift = shiftHorizontally ? random.nextInt(width) : 0;
             int verticalShift = shiftVertically ? random.nextInt(height) : 0;
 
-            BufferedImage sourceImage = new BufferedImage(width, height, inputImage.getType());
+            // create a copy of the image to get the source pixel values from
+            BufferedImage sourceImage = new BufferedImage(width, height, inputImage.getType()); 
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {
                     sourceImage.setRGB(x, y, inputImage.getRGB(x, y));
                 }
             }
 
-            for (int y = 0; y < height; y++) {
-                int sourceY = (y + verticalShift) % height;
+            for (int y = 0; y < height; y++) { // loop through the image
+                int sourceY = (y + verticalShift) % height; // get the shifted y value, wrap around if needed
                 for (int x = 0; x < width; x++) {
-                    int sourceX = (x + horizontalShift) % width;
+                    int sourceX = (x + horizontalShift) % width; // get the shifted x value, wrap around if needed
 
                     // Get the original pixel's color components
                     int origColor = inputImage.getRGB(x, y);
@@ -59,6 +62,7 @@ public class DataMosh extends Filter {
                     int shiftedGreen = (shiftedColor >> 8) & 0xFF;
                     int shiftedBlue = shiftedColor & 0xFF;
 
+                    // Get the channel value from the source channel
                     int channelValue;
                     switch (sourceChannel) {
                         case 0:
@@ -72,6 +76,7 @@ public class DataMosh extends Filter {
                             break;
                     }
 
+                    // Set the channel value to the target channel
                     switch (targetChannel) {
                         case 0:
                             origRed = channelValue;
@@ -84,6 +89,7 @@ public class DataMosh extends Filter {
                             break;
                     }
 
+                    // Create the new color with the modified channel values
                     int newColor = (origAlpha << 24) | (origRed << 16) | (origGreen << 8) | origBlue;
                     inputImage.setRGB(x, y, newColor);
                 }

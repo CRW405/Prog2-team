@@ -10,18 +10,14 @@ public class Inverse extends Filter {
 
     @Override
     public BufferedImage applyFilter(File inputFile) throws IOException {
-
-        // this is a variable for the new buffered image
         BufferedImage inputImage = ImageIO.read(inputFile);
 
-        // so we essentially have to loop through the x and y values so it can count
-        // every inch of the picture
         for (int y = 0; y < inputImage.getHeight(); y++) {
             for (int x = 0; x < inputImage.getWidth(); x++) {
                 int pixel = inputImage.getRGB(x, y);
                 Color color = new Color(pixel);
 
-                // we get color values :)
+                // reverse colors by subtracting from max RGB value
                 int alpha = color.getAlpha();
                 int red = 255 - color.getRed();
                 int green = 255 - color.getGreen();
