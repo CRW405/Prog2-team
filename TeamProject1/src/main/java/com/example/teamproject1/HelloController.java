@@ -21,7 +21,8 @@ public class HelloController {
      * TODO
      * Filter folders for filter classes - done
      * Abstract class for filter so that filters are consistent - done
-     * Normalize blueshift logic with greyscale logic, eg: use same pixel system - done
+     * Normalize blueshift logic with greyscale logic, eg: use same pixel system -
+     * done
      * that greyscale uses- done
      * 
      * Control Logic for buttons, etc
@@ -34,9 +35,11 @@ public class HelloController {
      * Sepia - done
      * Sort pixels - done
      * inverse color - done
+     * Data mosh like effect - done, but could be improved and definitely needs to
+     * be rewritten and better documented
+     * TileShuffle - done
      * 
      * Overlay (add another image on top of the current image)
-     * Data mosh like effect
      * Mirror
      * make error popup function
      */
@@ -103,7 +106,7 @@ public class HelloController {
 
     @FXML
     private void loadOutput(ActionEvent event) {
-        if (outputImage!=null) {
+        if (outputImage != null) {
             try {
                 File temFile = File.createTempFile("temp", ".png");
                 ImageIO.write(outputImage, "png", temFile);
@@ -200,6 +203,30 @@ public class HelloController {
         try {
             outputImage = sort.applyFilter(inputImageFile);
             outputImageView.setImage(Sort.convertBufferedToFx(outputImage));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void applyShuffleTile(ActionEvent event) {
+        ShuffleTile shuffletile = new ShuffleTile();
+
+        try {
+            outputImage = shuffletile.applyFilter(inputImageFile);
+            outputImageView.setImage(shuffletile.convertBufferedToFx(outputImage));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void applyDataMosh(ActionEvent event) {
+        DataMosh datamosh = new DataMosh();
+
+        try {
+            outputImage = datamosh.applyFilter(inputImageFile);
+            outputImageView.setImage(datamosh.convertBufferedToFx(outputImage));
         } catch (Exception e) {
             e.printStackTrace();
         }

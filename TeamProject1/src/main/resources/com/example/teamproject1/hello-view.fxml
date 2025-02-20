@@ -23,33 +23,41 @@
     fx:controller="com.example.teamproject1.HelloController">
     <center>
         <HBox spacing="20" alignment="CENTER">
-            <ImageView fx:id="inputImageView" fitWidth="500" HBox.hgrow="ALWAYS" preserveRatio="true"/>
-            <ImageView fx:id="outputImageView" fitWidth="500" HBox.hgrow="ALWAYS" preserveRatio="true"/>
+            <ImageView fx:id="inputImageView" fitWidth="500" HBox.hgrow="ALWAYS"
+                preserveRatio="true" />
+            <ImageView fx:id="outputImageView" fitWidth="500" HBox.hgrow="ALWAYS"
+                preserveRatio="true" />
         </HBox>
     </center>
     <bottom>
-    <VBox spacing="10" alignment="CENTER">
-        <HBox spacing="10" alignment="CENTER">
-            <VBox spacing="10" alignment="CENTER">
-                <Button text="Load Image" fx:id="loadImageButton" onAction="#loadImage" />
-                <Button text="Save Image" fx:id="saveImageButton" onAction="#saveImage" />
-                <Button text="Use Current Output Image" fx:id="LoadOutputButton" onAction="#loadOutput" />
-            </VBox>
-            <VBox spacing="10" alignment="CENTER">
-                <Button text="Gray Scale" fx:id="applyGrayScaleButton" onAction="#applyGrayScale" />
-                <Button text="Sepia Tone" fx:id="applySepiaButton" onAction="#applySepia" />
-            </VBox>
-            <VBox spacing="10" alignment="CENTER">
-                <Button text="Red Shift" fx:id="applyRedShiftButton" onAction="#applyRedShift" />
-                <Button text="Green Shift" fx:id="applyGreenShiftButton" onAction="#applyGreenShift" />
-                <Button text="Blue Shift" fx:id="applyBlueShiftButton" onAction="#applyBlueShift" />
-            </VBox>
-            <VBox spacing="10" alignment="CENTER">
-                <Button text="Inverse" fx:id="applyInverseButton" onAction="#applyInverse" />
-                <Button text="Sort Pixels" fx:id="applySortButton" onAction="#applySort" />
-            </VBox>
-        </HBox>
-                <Button text="ResetFilter" fx:id="resetButton" onAction="#reset" />
-    </VBox>
+        <VBox spacing="10" alignment="CENTER">
+            <HBox spacing="10" alignment="CENTER">
+                <VBox spacing="10" alignment="CENTER">
+                    <Button text="Load Image" fx:id="loadImageButton" onAction="#loadImage" />
+                    <Button text="Save Image" fx:id="saveImageButton" onAction="#saveImage" />
+                    <Button text="Use Current Output Image" fx:id="LoadOutputButton"
+                        onAction="#loadOutput" />
+                </VBox>
+                <VBox spacing="10" alignment="CENTER">
+                    <Button text="Gray Scale" fx:id="applyGrayScaleButton"
+                        onAction="#applyGrayScale" />
+                    <Button text="Sepia Tone" fx:id="applySepiaButton" onAction="#applySepia" />
+                </VBox>
+                <VBox spacing="10" alignment="CENTER">
+                    <Button text="Red Shift" fx:id="applyRedShiftButton" onAction="#applyRedShift" />
+                    <Button text="Green Shift" fx:id="applyGreenShiftButton"
+                        onAction="#applyGreenShift" />
+                    <Button text="Blue Shift" fx:id="applyBlueShiftButton"
+                        onAction="#applyBlueShift" />
+                </VBox>
+                <VBox spacing="10" alignment="CENTER">
+                    <Button text="Inverse" fx:id="applyInverseButton" onAction="#applyInverse" />
+                    <Button text="Sort Pixels" fx:id="applySortButton" onAction="#applySort" />
+                    <Button text="Tile Shuffle" fx:id="applyShuffleTileButton" onAction="#applyShuffleTile" />
+                    <Button text="Data Mosh" fx:id="applyDataMoshButton" onAction="#applyDataMosh" />
+                </VBox>
+            </HBox>
+            <Button text="ResetFilter" fx:id="resetButton" onAction="#reset" />
+        </VBox>
     </bottom>
 </BorderPane>
