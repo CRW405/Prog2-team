@@ -52,9 +52,9 @@ public class HelloController {
 
     //////////////////////////// FILE OPERATIONS ///////////////////////////
     
-    private void showError(String errorMessage) {
+    private void showError(String errorMessage) { // shows that should be inputted 
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
+        alert.setTitle("Make sure to input a valid image");
         alert.setContentText(errorMessage);
         alert.showAndWait();
     }
@@ -71,16 +71,19 @@ public class HelloController {
         // setup //
 
         if (selectedFile != null) { // if a file was selected
-            Image inputImage = new Image(selectedFile.toURI().toString()); // create image object from selected file
-            inputImageView.setImage(inputImage); // set the input image view to the selected image
-            inputImageFile = selectedFile; // set the input image file to the selected file
+            try {
+                Image inputImage = new Image(selectedFile.toURI().toString()); // create image object from selected file
+                inputImageView.setImage(inputImage); // set the input image view to the selected image
+                inputImageFile = selectedFile; // set the input image file to the selected file
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("File is invalid. PLease choose another valid image file."); // if no file was selected, print error
+            }
         } else {
-            System.out.println("File is not valid"); // if no file was selected, print error
-
-            // Id like to make an error popup, we could make a function that takes a message as input, passing error message or custom message in this case
-            // errorPopup("File is not valid");
+            showError("No file was selected. Please select a image file."); 
         }
     }
+
 
 
 
