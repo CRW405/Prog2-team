@@ -16,7 +16,8 @@ public class BlueShift extends Filter {
         for (int y = 0; y < inputImage.getHeight(); y++) { // loop through all the pixels in the image
             for (int x = 0; x < inputImage.getWidth(); x++) {
                 int pixel = inputImage.getRGB(x, y); // get pixel value
-                Color color = new Color(pixel); // create color object from pixel value
+                Color color = new Color(pixel, true); // create color object from pixel value
+                // true toggles hasalpha which allows the filter to preserve transparency
 
                 // J: we get color values :)
                 int alpha = color.getAlpha();

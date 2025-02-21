@@ -37,9 +37,9 @@
     fx:controller="com.example.teamproject1.HelloController">
     <center>
         <HBox spacing="20" alignment="CENTER">
-            <ImageView fx:id="inputImageView" fitWidth="500" HBox.hgrow="ALWAYS"
+            <ImageView fx:id="inputImageView" fitWidth="500" fitHeight="500"  HBox.hgrow="ALWAYS"
                 preserveRatio="true" />
-            <ImageView fx:id="outputImageView" fitWidth="500" HBox.hgrow="ALWAYS"
+            <ImageView fx:id="outputImageView" fitWidth="500" fitHeight="500" HBox.hgrow="ALWAYS"
                 preserveRatio="true" />
         </HBox>
     </center>

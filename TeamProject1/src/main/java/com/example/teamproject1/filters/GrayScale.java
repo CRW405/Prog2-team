@@ -19,7 +19,7 @@ public class GrayScale extends Filter {
             for (int x = 0; x < inputImage.getWidth(); x++) {
                 // get pixel from x and y
                 int pixel = inputImage.getRGB(x, y);
-                Color color = new Color(pixel); // create color object from pixel
+                Color color = new Color(pixel, true); // create color object from pixel
 
                 // get color values
                 int alpha = color.getAlpha();
