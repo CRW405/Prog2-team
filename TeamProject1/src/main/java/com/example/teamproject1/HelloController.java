@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 import com.example.teamproject1.filters.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -49,7 +50,15 @@ public class HelloController {
     private BufferedImage outputImage;
     //////////////////////////// FXML VARIABLES ////////////////////////////
 
-    //////////////////////////// FILE OPERATIONS ////////////////////////////
+    //////////////////////////// FILE OPERATIONS ///////////////////////////
+    
+    private void showError(String errorMessage) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setContentText(errorMessage);
+        alert.showAndWait();
+    }
+
     @FXML
     private void loadImage(ActionEvent event) { // open file chooser to select input image
         FileChooser fileChooser = new FileChooser(); // create file chooser object
@@ -72,6 +81,8 @@ public class HelloController {
             // errorPopup("File is not valid");
         }
     }
+
+
 
     @FXML
     private void saveImage(ActionEvent event) { // save output image
