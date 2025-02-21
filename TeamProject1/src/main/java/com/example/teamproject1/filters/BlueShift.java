@@ -38,7 +38,7 @@ public class BlueShift extends Filter {
     }
 }
 
-// preserving J's comments for posterity and historical reasons
+// preserving Jay's comments for posterity and historical reasons
 /*
  * sooooooo how do colors work???
  * uhhhh how does red or blue or green = grey??

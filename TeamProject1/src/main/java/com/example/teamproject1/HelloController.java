@@ -35,7 +35,7 @@ import javafx.stage.FileChooser;
  * be rewritten and better documented
  * TileShuffle - done, by accident
  * 
- * Overlay (add another image on top of the current image)
+ * Overlay (add another image on top of the current image) - jay's job and will get done
  * Mirror
  * make error popup function
  */
@@ -54,9 +54,10 @@ public class HelloController {
     
     private void showError(String errorMessage) { // shows that should be inputted 
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Make sure to input a valid image");
+        alert.setTitle("ERROR MESSAGE");
         alert.setContentText(errorMessage);
-        alert.showAndWait();
+        alert.showAndWait(); // this shows up as an alert if you don't input a file 
+        // so proud of this fr fr
     }
 
     @FXML
