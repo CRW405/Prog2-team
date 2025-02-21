@@ -148,7 +148,7 @@ public class HelloController {
 
         try {
             outputImage = sepia.applyFilter(inputImageFile);
-            outputImageView.setImage(sepia.convertBufferedToFx(outputImage));
+            outputImageView.setImage(Sepia.convertBufferedToFx(outputImage));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -220,7 +220,7 @@ public class HelloController {
 
         try {
             outputImage = shuffletile.applyFilter(inputImageFile);
-            outputImageView.setImage(shuffletile.convertBufferedToFx(outputImage));
+            outputImageView.setImage(ShuffleTile.convertBufferedToFx(outputImage));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -232,7 +232,7 @@ public class HelloController {
 
         try {
             outputImage = datamosh.applyFilter(inputImageFile);
-            outputImageView.setImage(datamosh.convertBufferedToFx(outputImage));
+            outputImageView.setImage(DataMosh.convertBufferedToFx(outputImage));
         } catch (Exception e) {
             e.printStackTrace();
         }
