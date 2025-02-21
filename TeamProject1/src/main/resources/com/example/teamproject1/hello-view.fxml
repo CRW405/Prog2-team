@@ -18,7 +18,7 @@
     Image Saver - done
     Sliders for filter parameters, e.g. brightness, contrast, etc.
 
-    jay's wishes 
+    jay's wishes <- - - - - Caleb: "I second this"
     a combo box please :) 
     just prettier, all the buttons hurt my head
      -->
@@ -73,7 +73,7 @@
                     <Button text="Sort Pixels" fx:id="applySortButton" onAction="#applySort" />
                     <Button text="Tile Shuffle" fx:id="applyShuffleTileButton"
                         onAction="#applyShuffleTile" />
-                    <Button text="Data Mosh" fx:id="applyDataMoshButton" onAction="#applyDataMosh" />
+                    <Button text="Channel Shift" fx:id="applyChannelShiftButton" onAction="#applyChannelShift" />
                 </VBox>
             </HBox>
             <!-- Reset output image to input image-->

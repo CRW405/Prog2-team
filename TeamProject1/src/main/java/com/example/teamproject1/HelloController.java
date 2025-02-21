@@ -77,10 +77,11 @@ public class HelloController {
                 inputImageView.setImage(inputImage); // set the input image view to the selected image
                 inputImageFile = selectedFile; // set the input image file to the selected file
             } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("File is invalid. PLease choose another valid image file."); // if no file was selected, print error
+                System.out.println("File is invalid. PLease choose another valid image file: " + e.getMessage()); // if no file was selected, print error
+                showError("File is invalid. Please choose another valid image file."); // error popup
             }
         } else {
+            System.out.println("No file was selected. Please select a image file."); // if no file was selected, print error
             showError("No file was selected. Please select a image file."); 
         }
     }
@@ -106,12 +107,12 @@ public class HelloController {
                     }
                     javax.imageio.ImageIO.write(outputImage, "png", file); // write the output image to the file
                 } catch (Exception e) { // catch errors
-                    e.printStackTrace();
-                    // errorPopup("Error saving image: " + e.getMessage());
+                    System.out.println("Error saving image: " + e.getMessage());
+                    showError("Error saving image. Please try again.");
                 }
             } else {
                 System.out.println("No output image to save");
-                // errorPopup("No output image to save");
+                showError("No output image to save.");
             }
         }
     }
@@ -132,12 +133,13 @@ public class HelloController {
                 inputImageFile = tempFile; // set the input image file to the temporary file
                 inputImageView.setImage(new Image(tempFile.toURI().toString())); // set the input image view to the temporary file
             } catch (Exception e) {
-                e.printStackTrace(); 
-                // errorPopup("Error loading output image: " + e.getMessage());
+                System.out.println("Error loading output image: " + e.getMessage());
+                showError("Error loading output image.");
+                
             }
         } else {
             System.out.println("No output image to load");
-            // errorPopup("No output image to load");
+            showError("No output image to load.");
         }
     }
     //////////////////////////// FILTER OPERATIONS ////////////////////////////
@@ -148,12 +150,12 @@ public class HelloController {
         GrayScale grayScale = new GrayScale(); // create greyscale object
         try { // since the filters throw an IOException, we need to catch it
             outputImage = grayScale.applyFilter(inputImageFile); // apply greyscale filter to input image file
-            outputImageView.setImage(GrayScale.convertBufferedToFx(outputImage));
+            outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
             // set the output image view to the output image, converting it to a JavaFX
             // image
         } catch (Exception e) {
-            e.printStackTrace(); // if therese an error, print it
-            // errorPopup("Error applying grayscale filter: " + e.getMessage());
+            System.out.println("Error applying grey scale filter: " + e.getMessage());
+            showError("Error applying grey scale filter.");
         }
     }
 
@@ -163,9 +165,10 @@ public class HelloController {
 
         try {
             outputImage = sepia.applyFilter(inputImageFile);
-            outputImageView.setImage(Sepia.convertBufferedToFx(outputImage));
+            outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error applying sepia filter: " + e.getMessage());
+            showError("Error applying sepia filter.");
         }
     }
 
@@ -175,9 +178,10 @@ public class HelloController {
 
         try {
             outputImage = blueshift.applyFilter(inputImageFile);
-            outputImageView.setImage(BlueShift.convertBufferedToFx(outputImage));
+            outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error applying blue shift filter: " + e.getMessage());
+            showError("Error applying blue shift filter.");
         }
     }
 
@@ -187,9 +191,10 @@ public class HelloController {
 
         try {
             outputImage = redshift.applyFilter(inputImageFile);
-            outputImageView.setImage(RedShift.convertBufferedToFx(outputImage));
+            outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error applying red shift filter: " + e.getMessage());
+            showError("Error applying red shift filter.");
         }
     }
 
@@ -199,9 +204,10 @@ public class HelloController {
 
         try {
             outputImage = greenshift.applyFilter(inputImageFile);
-            outputImageView.setImage(GreenShift.convertBufferedToFx(outputImage));
+            outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error applying green shift filter: " + e.getMessage());
+            showError("Error applying green shift filter.");
         }
     }
 
@@ -211,9 +217,10 @@ public class HelloController {
 
         try {
             outputImage = inverse.applyFilter(inputImageFile);
-            outputImageView.setImage(Inverse.convertBufferedToFx(outputImage));
+            outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error applying inverse filter: " + e.getMessage());
+            showError("Error applying inverse filter.");
         }
     }
 
@@ -223,33 +230,36 @@ public class HelloController {
 
         try {
             outputImage = sort.applyFilter(inputImageFile);
-            outputImageView.setImage(Sort.convertBufferedToFx(outputImage));
+            outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error applying sort filter: " + e.getMessage());
+            showError("Error applying sort filter.");
         }
     }
 
     @FXML
     private void applyShuffleTile(ActionEvent event) {
-        ShuffleTile shuffletile = new ShuffleTile();
+        ShuffleTile shuffleTile = new ShuffleTile();
 
         try {
-            outputImage = shuffletile.applyFilter(inputImageFile);
-            outputImageView.setImage(ShuffleTile.convertBufferedToFx(outputImage));
+            outputImage = shuffleTile.applyFilter(inputImageFile);
+            outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error applying shuffle tile filter: " + e.getMessage());
+            showError("Error applying shuffle tile filter.");
         }
     }
 
     @FXML
-    private void applyDataMosh(ActionEvent event) {
-        DataMosh datamosh = new DataMosh();
+    private void applyChannelShift(ActionEvent event) {
+        ChannelShift channelShift = new ChannelShift();
 
         try {
-            outputImage = datamosh.applyFilter(inputImageFile);
-            outputImageView.setImage(DataMosh.convertBufferedToFx(outputImage));
+            outputImage = channelShift.applyFilter(inputImageFile);
+            outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error applying data mosh filter: " + e.getMessage());
+            showError("Error applying data mosh filter.");
         }
     }
     //////////////////////////////////////////////////////// FILTERS ////////////////////////////////////////////////////////

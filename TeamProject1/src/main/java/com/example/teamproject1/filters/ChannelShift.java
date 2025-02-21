@@ -11,7 +11,7 @@ import java.util.Random;
 // Logic sourced from http://datamoshing.com/type/image/
 // great resource for info on how to create image filters
 
-public class DataMosh extends Filter {
+public class ChannelShift extends Filter {
 
     @Override
     public BufferedImage applyFilter(File inputFile) throws IOException {
