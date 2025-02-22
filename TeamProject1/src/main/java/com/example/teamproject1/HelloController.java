@@ -31,13 +31,13 @@ import javafx.stage.FileChooser;
  * Sepia - done
  * Sort pixels - done
  * inverse color - done
- * Data mosh like effect - done, but could be improved and definitely needs to
- * be rewritten and better documented
  * TileShuffle - done, by accident
+ * make error popup function - done
+ * 
+ * Data mosh like effect - ended up being channel shift, could revisit
  * 
  * Overlay (add another image on top of the current image) - jay's job and will get done
  * Mirror
- * make error popup function
  */
 
 public class HelloController {
