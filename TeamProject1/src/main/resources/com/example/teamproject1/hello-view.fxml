@@ -74,6 +74,7 @@
                     <Button text="Tile Shuffle" fx:id="applyShuffleTileButton"
                         onAction="#applyShuffleTile" />
                     <Button text="Channel Shift" fx:id="applyChannelShiftButton" onAction="#applyChannelShift" />
+                    <Button text="Overlay Image" fx:id="applyOverlayImageButton" onAction="#applyOverlay" />
                 </VBox>
             </HBox>
             <!-- Reset output image to input image-->

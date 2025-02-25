@@ -35,7 +35,7 @@ import javafx.stage.FileChooser;
  * be rewritten and better documented
  * TileShuffle - done, by accident
  * 
- * Overlay (add another image on top of the current image) - jay's job and will get done
+ * Overlay (add another image on top of the current image) - jay's job and in progress
  * Mirror
  * make error popup function
  */
