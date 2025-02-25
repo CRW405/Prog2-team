@@ -36,7 +36,7 @@ import javafx.stage.FileChooser;
  * 
  * Data mosh like effect - ended up being channel shift, could revisit
  * 
- * Overlay (add another image on top of the current image) - jay's job and will get done
+ * Overlay (add another image on top of the current image) - jay's job and in progress
  * Mirror
  */
 
@@ -260,6 +260,19 @@ public class HelloController {
         } catch (Exception e) {
             System.out.println("Error applying data mosh filter: " + e.getMessage());
             showError("Error applying data mosh filter.");
+        }
+    }
+
+    @FXML
+    private void applyOverlay(ActionEvent event) {
+        Overlap overlap = new Overlap();
+
+        try {
+            outputImage = overlap.applyFilter(inputImageFile);
+            outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
+        } catch (Exception e) {
+            System.out.println("Error applying overlay image: " + e.getMessage());
+            showError("Error applying overlay filter.");
         }
     }
     //////////////////////////////////////////////////////// FILTERS ////////////////////////////////////////////////////////
