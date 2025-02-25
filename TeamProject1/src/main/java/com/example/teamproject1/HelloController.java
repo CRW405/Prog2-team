@@ -262,5 +262,18 @@ public class HelloController {
             showError("Error applying data mosh filter.");
         }
     }
+
+    @FXML
+    private void applyOverlay(ActionEvent event) {
+        Overlay overlayImage = new Overlay();
+
+        try {
+            outputImage = overlayImage.applyFilter(inputImageFile);
+            outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
+        } catch (Exception e) {
+            System.out.println("Error applying overlay image: " + e.getMessage());
+            showError("Error applying overlay filter.");
+        }
+    }
     //////////////////////////////////////////////////////// FILTERS ////////////////////////////////////////////////////////
 }
