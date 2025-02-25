@@ -10,6 +10,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Overlap extends Filter{
 
+    // this website helped a lot : https://www.tutorialspoint.com/javafx/javafx_images.htm
+    // maybe not directly but it definitely help me get to this point 
+
     @Override
     public BufferedImage applyFilter(File inputFile) throws IOException {
         // This code will load the image already inputted 
