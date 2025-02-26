@@ -8,6 +8,8 @@ import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import javafx.stage.FileChooser;
+
 public class Overlap extends Filter{
 
     // this website helped a lot : https://www.tutorialspoint.com/javafx/javafx_images.htm
@@ -54,14 +56,9 @@ public class Overlap extends Filter{
     // NEW METHOD!!! 
     //this is a cool lil method that opens a file chooser
     private File chooseOverlayImage() {
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Overlay Image");
-        fileChooser.setFileFilter(new FileNameExtensionFilter("Image Files","jpg", "jpeg", "png"));
-
-        int result = fileChooser.showOpenDialog(null);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            return fileChooser.getSelectedFile();
-        }
-        return null;
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Overlay Image");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
+        return fileChooser.showOpenDialog(null);
     }
 }
