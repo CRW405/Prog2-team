@@ -1,6 +1,8 @@
 package com.example.teamproject1.filters;
 
+import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -36,6 +38,10 @@ public class Overlap extends Filter{
         // no image read this time, didn't work at first when i did that  
         BufferedImage outputImage = new BufferedImage(baseImage.getWidth(), baseImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
 
+        // At first, the image was only on the top corner so i added this code
+        // this scales the image to the base images dimensions 
+        Image scaledOverlayImage = overlayImage.getScaledInstance(baseImage.getWidth(), baseImage.getHeight(), Image.SCALE_SMOOTH);
+
         // Graphics 2D get  the image to draw on the first image 
         // helpful for rendering 2D dimensional figures 
         Graphics2D g2d = outputImage.createGraphics(); 
@@ -43,8 +49,15 @@ public class Overlap extends Filter{
         //the actual drawing of the base 
         g2d.drawImage(baseImage,0,0, null);
 
+        // float alpha 0.5f is creating a variable for transparency
+        // you can even change the transparency from 0.0-1.0 
+        // reminder : alpha is transparency and the composite is just the composed amount thing
+        float alpha = 0.5f;
+        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
+
         // making the second image transparent 
-        g2d.drawImage(overlayImage,0,0,null);
+        // switch overlayImage to scaledOverlayImage to fix image size issues
+        g2d.drawImage(scaledOverlayImage,0,0,null);
 
         // bye bye graphics2D because its not needed anymore
         // we dont want it to continue throughout the program
@@ -54,7 +67,7 @@ public class Overlap extends Filter{
     }
 
     // NEW METHOD!!! 
-    //this is a cool lil method that opens a file chooser
+    //this is a cool lil method that opens a file chooser similar to what we have in the filter code 
     private File chooseOverlayImage() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Overlay Image");
@@ -74,4 +87,7 @@ public class Overlap extends Filter{
  * no overlay imaage appear 
  * try sorting pixels through a loop or smt???
  * 
+ * so i fixed the transparency (YAY)
+ * fixing that was just one line of code and website away 
+ * AHHHH IT WORKS 
  */
