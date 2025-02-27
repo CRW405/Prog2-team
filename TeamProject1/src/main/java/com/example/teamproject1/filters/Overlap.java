@@ -47,10 +47,10 @@ public class Overlap extends Filter{
         //the actual drawing of the base 
         g2d.drawImage(baseImage,0,0, null);
 
-        // float alpha 0.5f is creating a variable for transparency
+        // float alpha 0.7f is creating a variable for transparency
         // you can even change the transparency from 0.0-1.0 
         // reminder : alpha is transparency and the composite is just the composed amount thing
-        float alpha = 0.5f;
+        float alpha = 0.7f;
         g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
 
         // making the second image transparent 
