@@ -30,7 +30,7 @@ public class Overlap extends Filter{
 
         // This will load the image directly onto the first image
         // same image read  
-        BufferedImage overlayImage = ImageIO.read(inputFile);
+        BufferedImage overlayImage = ImageIO.read(overlayFile);
 
         // The final image turns it into one final image
         // no image read this time, didn't work at first when i did that  
@@ -62,3 +62,16 @@ public class Overlap extends Filter{
         return fileChooser.showOpenDialog(null);
     }
 }
+
+/*
+ * hey its me again 
+ * sooo the file chooser pops up but nothing happens?? 
+ * idek 
+ * maybe i need to just be smarter LOL, my brain hurts 
+ * 
+ * problems : 
+ * doesn't work
+ * no overlay imaage appear 
+ * try sorting pixels through a loop or smt???
+ * 
+ */
