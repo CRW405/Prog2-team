@@ -1,14 +1,11 @@
 package com.example.teamproject1.filters;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.Arrays;
 
 import javax.imageio.ImageIO;
-import java.awt.Color;
 
 public class Sort extends Filter {
     public BufferedImage applyFilter(File inputFile) throws IOException {
