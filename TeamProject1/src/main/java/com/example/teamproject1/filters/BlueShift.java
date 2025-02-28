@@ -13,11 +13,12 @@ public class BlueShift extends Filter {
 
         BufferedImage inputImage = ImageIO.read(inputFile); // read input image
 
+        // all the basic get image things for going through pixels 
         for (int y = 0; y < inputImage.getHeight(); y++) { // loop through all the pixels in the image
             for (int x = 0; x < inputImage.getWidth(); x++) {
-                int pixel = inputImage.getRGB(x, y); // get pixel value
-                Color color = new Color(pixel, true); // create color object from pixel value
-                // true toggles hasalpha which allows the filter to preserve transparency
+                int pixel = inputImage.getRGB(x, y); // getting pixel value
+                Color color = new Color(pixel, true); // create the color object from pixel value
+                // true hasalpha makes the filter keep the transparency
 
                 // J: we get color values :)
                 int alpha = color.getAlpha();
@@ -28,7 +29,7 @@ public class BlueShift extends Filter {
                 // red 40%, green 80%, blue 140% or max
                 red = (int) (red * 0.4);
                 green = (int) (green * 0.8);
-                blue = Math.min((int) (blue * 1.4), 250); // J: blue no go higher than 255
+                blue = Math.min((int) (blue * 1.4), 250); // J: blue no go higher than 250
 
                 int newColor = new Color(red, green, blue, alpha).getRGB(); // create new color object from new color
                                                                             // values
