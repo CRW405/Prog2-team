@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 
 import javafx.stage.FileChooser;
 
-public class Overlap extends Filter{
+public class Overlay extends Filter{
 
     // this website helped a lot : https://www.tutorialspoint.com/javafx/javafx_images.htm
     // maybe not directly but it definitely help me get to this point 
