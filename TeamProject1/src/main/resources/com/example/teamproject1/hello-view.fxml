@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.geometry.Insets?>
+
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ScrollPane.ScrollBarPolicy?>
+
+
 <?import javafx.scene.image.ImageView?>
+
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+
 
 
 <!-- TO DO 
@@ -35,6 +43,15 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1"
     fx:controller="com.example.teamproject1.HelloController">
+    <top>
+        <HBox spacing="10" alignment="CENTER" style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10; -fx-border-radius: 5;">
+            <!-- File Operations -->
+            <Button prefWidth="150" prefHeight="50" text="Load Image" fx:id="loadImageButton" onAction="#loadImage" />
+            <Button prefWidth="150" prefHeight="50" text="Save Image" fx:id="saveImageButton" onAction="#saveImage" />
+            <Button prefWidth="150" prefHeight="50" text="Use Current Output" fx:id="LoadOutputButton"
+                onAction="#loadOutput" />
+        </HBox>
+    </top>
     <center>
         <HBox spacing="20" alignment="CENTER">
             <ImageView fx:id="inputImageView" fitWidth="500" fitHeight="500"  HBox.hgrow="ALWAYS"
@@ -43,45 +60,48 @@
                 preserveRatio="true" />
         </HBox>
     </center>
-    <bottom>
+    <bottom >
+    <HBox alignment="CENTER" style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10; -fx-border-radius: 5;">
         <VBox spacing="10" alignment="CENTER">
             <HBox spacing="10" alignment="CENTER">
-                <VBox spacing="10" alignment="CENTER">
-                    <!-- File Operations-->
-                    <Button text="Load Image" fx:id="loadImageButton" onAction="#loadImage" />
-                    <Button text="Save Image" fx:id="saveImageButton" onAction="#saveImage" />
-                    <Button text="Use Current Output Image" fx:id="LoadOutputButton"
-                        onAction="#loadOutput" />
-                </VBox>
+            <TitledPane text="'Old' Filters"  collapsible="true" expanded="false"> 
                 <VBox spacing="10" alignment="CENTER">
                     <!-- 'Old' Filters -->
-                    <Button text="Gray Scale" fx:id="applyGrayScaleButton"
+                    <Button prefWidth="150" prefHeight="50" text="Gray Scale" fx:id="applyGrayScaleButton"
                         onAction="#applyGrayScale" />
-                    <Button text="Sepia Tone" fx:id="applySepiaButton" onAction="#applySepia" />
+                    <Button prefWidth="150" prefHeight="50" text="Sepia Tone" fx:id="applySepiaButton" onAction="#applySepia" />
                 </VBox>
+            </TitledPane>
+            <TitledPane text="Color Shift Filters"  collapsible="true" expanded="false"> 
                 <VBox spacing="10" alignment="CENTER">
                     <!-- Color Shift Filters-->
-                    <Button text="Red Shift" fx:id="applyRedShiftButton" onAction="#applyRedShift" />
-                    <Button text="Green Shift" fx:id="applyGreenShiftButton"
+                    <Button prefWidth="150" prefHeight="50" text="Red Shift" fx:id="applyRedShiftButton" onAction="#applyRedShift" />
+                    <Button prefWidth="150" prefHeight="50" text="Green Shift" fx:id="applyGreenShiftButton"
                         onAction="#applyGreenShift" />
-                    <Button text="Blue Shift" fx:id="applyBlueShiftButton"
+                    <Button prefWidth="150" prefHeight="50" text="Blue Shift" fx:id="applyBlueShiftButton"
                         onAction="#applyBlueShift" />
                 </VBox>
+            </TitledPane>
+            <TitledPane text="'Glitch' Filters"  collapsible="true" expanded="false"> 
                 <VBox spacing="10" alignment="CENTER">
                     <!-- 'Glitch/Corruption' Filters -->
-                    <Button text="Inverse" fx:id="applyInverseButton" onAction="#applyInverse" />
-                    <Button text="Sort Pixels" fx:id="applySortButton" onAction="#applySort" />
-                    <Button text="Tile Shuffle" fx:id="applyShuffleTileButton"
+                    <Button prefWidth="150" prefHeight="50" text="Inverse" fx:id="applyInverseButton" onAction="#applyInverse" />
+                    <Button prefWidth="150" prefHeight="50" text="Sort Pixels" fx:id="applySortButton" onAction="#applySort" />
+                    <Button prefWidth="150" prefHeight="50" text="Tile Shuffle" fx:id="applyShuffleTileButton"
                         onAction="#applyShuffleTile" />
-                    <Button text="Channel Shift" fx:id="applyChannelShiftButton" onAction="#applyChannelShift" />
+                    <Button prefWidth="150" prefHeight="50" text="Channel Shift" fx:id="applyChannelShiftButton" onAction="#applyChannelShift" />
                 </VBox>
+            </TitledPane>
+            <TitledPane text="Other Filters"  collapsible="true" expanded="false"> 
                 <VBox spacing="10" alignment="CENTER">
                     <!-- Other Filters -->
-                    <Button text="Overlay Image" fx:id="applyOverlayImageButton" onAction="#applyOverlay" />
+                    <Button prefWidth="150" prefHeight="50" text="Overlay Image" fx:id="applyOverlayImageButton" onAction="#applyOverlay" />
                 </VBox>
+            </TitledPane>
             </HBox>
             <!-- Reset output image to input image-->
-            <Button text="ResetFilter" fx:id="resetButton" onAction="#reset" />
+            <Button prefWidth="150" prefHeight="50" text="ResetFilter" fx:id="resetButton" onAction="#reset" />
         </VBox>
+    </HBox>
     </bottom>
 </BorderPane>
