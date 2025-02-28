@@ -3,8 +3,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.ScrollPane.ScrollBarPolicy?>
 
 
 <?import javafx.scene.image.ImageView?>
@@ -19,16 +17,16 @@
     Image Picker - done
     Filter Selection - in progress
     Output Image - done
-    borders and legends
+    borders and legends - done
 
     IDEAS
-    Dropdown menu for filter selection
+    Dropdown menu for filter selection - done
     Image Saver - done
     Sliders for filter parameters, e.g. brightness, contrast, etc.
 
-    jay's wishes <- - - - - Caleb: "I second this"
-    a combo box please :) 
-    just prettier, all the buttons hurt my head
+    jay's wishes <- - - - - Caleb: "I second this" - done
+    a combo box please :) - used titled panes instead
+    just prettier, all the buttons hurt my head - done
      -->
 
 <!-- 
@@ -36,9 +34,9 @@
      be careful not to change fx:id and onAction names and try to keep the naming conventions consistent
      
      PRIORITY:
-     borders around the filter sections
-     legends/labels for each section
-     In general, just make our ui look better
+     borders around the filter sections - done
+     legends/labels for each section - done
+     In general, just make our ui look better - done
      -->
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1"

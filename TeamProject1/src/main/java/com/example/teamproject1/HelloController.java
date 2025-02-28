@@ -33,7 +33,7 @@ import javafx.stage.FileChooser;
  * 
  * Data mosh like effect - ended up being channel shift, could revisit
  * 
- * Overlay (add another image on top of the current image) - jay's job and in progress
+ * Overlay (add another image on top of the current image) - jay's job and done
  * Mirror
  */
 
