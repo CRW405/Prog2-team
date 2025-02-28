@@ -262,10 +262,10 @@ public class HelloController {
 
     @FXML
     private void applyOverlay(ActionEvent event) {
-        Overlap overlap = new Overlap();
+        Overlay overlay = new Overlay();
 
         try {
-            outputImage = overlap.applyFilter(inputImageFile);
+            outputImage = overlay.applyFilter(inputImageFile);
             outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
         } catch (Exception e) {
             System.out.println("Error applying overlay image: " + e.getMessage());

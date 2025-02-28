@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 
 import javafx.stage.FileChooser;
 
-public class Overlap extends Filter{
+public class Overlay extends Filter{
 
     // this website helped a lot : https://www.tutorialspoint.com/javafx/javafx_images.htm
     // maybe not directly but it definitely help me get to this point 
@@ -75,17 +75,21 @@ public class Overlap extends Filter{
 }
 
 /*
- * hey its me again 
- * sooo the file chooser pops up but nothing happens?? 
- * idek 
- * maybe i need to just be smarter LOL, my brain hurts 
+ * how this works 
+ * source : https://www.tutorialspoint.com/javafx/javafx_images.htm
  * 
- * problems : 
- * doesn't work
- * no overlay imaage appear 
- * try sorting pixels through a loop or smt???
+ * i used a file chooser that makes you pick a a overlay image
+ * made it simpler by making a method for the file chooser 
+ * the scaled image and output image code will paste the selected image onto the original base image by getting the height and width
+ * i used the graphics 2d class because it was one of the easier ways to do it without messing with pixels 
+ * the graphics 2d class is a class that can help render your images and do more advanced image editing throughout the code 
  * 
- * so i fixed the transparency (YAY)
- * fixing that was just one line of code and website away 
- * AHHHH IT WORKS 
+ * graphics 2d section : 
+ * getting the image for graphics 2d so it can edit the image 
+ * the actual drawing of the image onto the base image 
+ * float alpha : 0.7f is the variable for the transparency 
+ * so you set the alpha composite as 0.7 in the next bit of code 
+ * drawImage will add the transparency from the scaled OverlayImage 
+ * we close the graphics 2d so that it doesn't continue throughout the rest of the code (similar to scan.close();)
+ * 
  */
