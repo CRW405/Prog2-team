@@ -1,10 +1,5 @@
 package com.example.teamproject1;
 
-import java.awt.Desktop.Action;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import javax.imageio.ImageIO;
-import com.example.teamproject1.filters.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -13,6 +8,10 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import com.example.teamproject1.filters.*;
 
 /*
  * TODO
@@ -20,10 +19,10 @@ import javafx.stage.FileChooser;
  * Abstract class for filter so that filters are consistent - done
  * Normalize blueshift logic with greyscale logic, eg: use same pixel system
  * that greyscale uses- done
- * 
+ *
  * User input for select filters
- * 
- * 
+ *
+ *
  * IDEAS:
  * Greyscale - done
  * Blue shift, - done
@@ -31,39 +30,67 @@ import javafx.stage.FileChooser;
  * Sepia - done
  * Sort pixels - done
  * inverse color - done
+ * Data mosh like effect - done, but could be improved and definitely needs to
+ * be rewritten and better documented
  * TileShuffle - done, by accident
- * make error popup function - done
- * 
- * Data mosh like effect - ended up being channel shift, could revisit
- * 
- * Overlay (add another image on top of the current image) - jay's job and in progress
+ *
+ * Overlay (add another image on top of the current image) - jay's job and will get done
  * Mirror
+ * make error popup function
  */
 
 public class HelloController {
     //////////////////////////// FXML VARIABLES ////////////////////////////
     @FXML
-    private ImageView inputImageView;
+    private Button loadImageButton; // button to load image
     @FXML
-    private ImageView outputImageView;
-    private File inputImageFile;
-    private BufferedImage outputImage;
+    private Button saveImageButton; // button to save image
+    @FXML
+    private Button resetButton; // button to reset filter
+    @FXML
+    private Button applyGrayScaleButton; // button to apply gray scale filter
+    @FXML
+    private Button applySepiaButton; // button to apply sepia tone filter
+    @FXML
+    private Button applyBlueShiftButton; // button to apply blue shift filter
+    @FXML
+    private Button applyRedShiftButton; // button to apply red shift filter
+    @FXML
+    private Button applyGreenShiftButton; // button to apply green shift filter
+    @FXML
+    private Button applyInverseButton; // button to apply inverse filter
+    @FXML
+    private Button applySortButton; // button to apply sort pixels filter
+    @FXML
+    private Button applyShuffleTileButton; // button to apply tile shuffle filter
+    @FXML
+    private Button applyChannelShiftButton; // button to apply channel shift filter
+    @FXML
+    private ComboBox<String> filterComboBox; // combo box to select filter
+    @FXML
+    private ImageView inputImageView; // image view for input image
+    @FXML
+    private ImageView outputImageView; // image view for output image
     //////////////////////////// FXML VARIABLES ////////////////////////////
 
-    //////////////////////////// FILE OPERATIONS ///////////////////////////
-    
-    private void showError(String errorMessage) { // shows that should be inputted 
+    //////////////////////////// FILE OPERATIONS ////////////////////////////
+
+    private void showError(String errorMessage) { // shows that should be inputted
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("ERROR MESSAGE");
         alert.setContentText(errorMessage);
-        alert.showAndWait(); // this shows up as an alert if you don't input a file 
+        alert.showAndWait(); // this shows up as an alert if you don't input a file
         // so proud of this fr fr
     }
+
+    // Add initialization for the input and output image variables
+    private BufferedImage inputImageFile;
+    private BufferedImage outputImage;
 
     @FXML
     private void loadImage(ActionEvent event) { // open file chooser to select input image
         FileChooser fileChooser = new FileChooser(); // create file chooser object
-        
+
         // setup //
         fileChooser.setTitle("Open Image File");
         fileChooser.getExtensionFilters().addAll(
@@ -74,20 +101,17 @@ public class HelloController {
         if (selectedFile != null) { // if a file was selected
             try {
                 Image inputImage = new Image(selectedFile.toURI().toString()); // create image object from selected file
+                inputImageFile = ImageIO.read(selectedFile); // store the selected file as a BufferedImage
                 inputImageView.setImage(inputImage); // set the input image view to the selected image
-                inputImageFile = selectedFile; // set the input image file to the selected file
             } catch (Exception e) {
-                System.out.println("File is invalid. PLease choose another valid image file: " + e.getMessage()); // if no file was selected, print error
+                System.out.println("File is invalid. Please choose another valid image file: " + e.getMessage()); // if no file was selected, print error
                 showError("File is invalid. Please choose another valid image file."); // error popup
             }
         } else {
-            System.out.println("No file was selected. Please select a image file."); // if no file was selected, print error
-            showError("No file was selected. Please select a image file."); 
+            System.out.println("No file was selected. Please select an image file."); // if no file was selected, print error
+            showError("No file was selected. Please select an image file.");
         }
     }
-
-
-
 
     @FXML
     private void saveImage(ActionEvent event) { // save output image
@@ -119,9 +143,12 @@ public class HelloController {
     //////////////////////////// FILE OPERATIONS ////////////////////////////
 
     //////////////////////////// FILTER OPERATIONS ////////////////////////////
+
     @FXML
     private void reset(ActionEvent event) { // reset output image to input image
-        outputImageView.setImage(inputImageView.getImage());
+        if (inputImageFile != null) {
+            outputImageView.setImage(inputImageView.getImage());
+        }
     }
 
     @FXML
@@ -130,12 +157,10 @@ public class HelloController {
             try {
                 File tempFile = File.createTempFile("temp", ".png"); // create a temporary file
                 ImageIO.write(outputImage, "png", tempFile); // write the output image to the temporary file
-                inputImageFile = tempFile; // set the input image file to the temporary file
                 inputImageView.setImage(new Image(tempFile.toURI().toString())); // set the input image view to the temporary file
             } catch (Exception e) {
                 System.out.println("Error loading output image: " + e.getMessage());
                 showError("Error loading output image.");
-                
             }
         } else {
             System.out.println("No output image to load");
@@ -145,6 +170,7 @@ public class HelloController {
     //////////////////////////// FILTER OPERATIONS ////////////////////////////
 
     //////////////////////////////////////////////////////// FILTERS ////////////////////////////////////////////////////////
+
     @FXML
     private void applyGrayScale(ActionEvent event) {
         GrayScale grayScale = new GrayScale(); // create greyscale object
@@ -265,15 +291,15 @@ public class HelloController {
 
     @FXML
     private void applyOverlay(ActionEvent event) {
-        Overlap overlap = new Overlap();
-
+        Overlay overlay = new Overlay(); // create overlay object
         try {
-            outputImage = overlap.applyFilter(inputImageFile);
-            outputImageView.setImage(Filter.convertBufferedToFx(outputImage));
+            outputImage = overlay.applyFilter(inputImageFile); // apply overlay filter
+            outputImageView.setImage(Filter.convertBufferedToFx(outputImage)); // set the output image view to the output image, converting it to a JavaFX image
         } catch (Exception e) {
-            System.out.println("Error applying overlay image: " + e.getMessage());
+            System.out.println("Error applying overlay filter: " + e.getMessage());
             showError("Error applying overlay filter.");
         }
     }
+
     //////////////////////////////////////////////////////// FILTERS ////////////////////////////////////////////////////////
 }
